@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSIP Homepage</title>
+<meta name="description" content="OSIP — Outer Struggle. Inner Peace. A whole-life approach to wellbeing: body, mind, relationships, environment, purpose.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* OSIP V1 — one committed light world: off-white paper, black ink, OSIP yellow. */
+:root{
+  color-scheme: light;
+  --paper:#F2EFE8;
+  --paper-2:#E9E5DB;
+  --ink:#0B0B0B;
+  --ink-soft:#3D3A34;
+  --muted:#6B675E;
+  --rule:#D6D0C3;
+  --yellow:#F5C518;
+  --night:#0B0B0B;
+  --night-text:#F2EFE8;
+  --night-muted:#A8A399;
+
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --read:"Newsreader",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+
+  --gutter:clamp(18px,5vw,56px);
+  --max:1120px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--read);font-size:1.125rem;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+h1,h2,h3{margin:0;text-wrap:balance}
+p{margin:0}
+
+.shell{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+
+.label{
+  font-family:var(--mono);font-size:.72rem;font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+}
+
+/* ---------- header ---------- */
+.top{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:10;
+  background:var(--paper);border-bottom:1px solid var(--rule);
+}
+.top .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:58px}
+.top .cta{
+  font-family:var(--display);font-weight:700;font-size:.9rem;text-decoration:none;
+  background:var(--yellow);color:var(--ink);padding:.5rem .85rem;white-space:nowrap;
+}
+.top .cta:hover{background:#FFD23A}
+.jump{border-top:1px solid var(--rule)}
+.jump ul{
+  list-style:none;margin:0;padding:0;display:flex;gap:4px;
+  overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.jump ul::-webkit-scrollbar{display:none}
+.jump a{
+  display:block;white-space:nowrap;text-decoration:none;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:.8rem .7rem;border-bottom:3px solid transparent;color:var(--ink-soft);
+}
+.jump li:first-child a{padding-left:0}
+.jump a:hover,.jump a.on{color:var(--ink);border-bottom-color:var(--yellow)}
+main section[id]{scroll-margin-top:118px}
+.mark{
+  font-family:var(--display);font-weight:900;font-stretch:112%;
+  font-size:1.35rem;letter-spacing:-.02em;text-decoration:none;
+  display:inline-flex;align-items:center;gap:.45rem;
+}
+.mark i{width:.5rem;height:.5rem;background:var(--yellow);display:inline-block}
+.nav{display:flex;gap:clamp(14px,3vw,28px);font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase}
+.nav a{text-decoration:none;padding-block:6px;border-bottom:2px solid transparent}
+.nav a:hover{border-bottom-color:var(--yellow)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:var(--display);font-weight:700;font-size:1rem;letter-spacing:.01em;
+  text-decoration:none;padding:.95rem 1.4rem;border:2px solid var(--ink);
+  transition:transform .15s ease, background-color .15s ease;
+}
+.btn .ar{transition:transform .15s ease}
+.btn:hover .ar{transform:translateX(3px)}
+.btn-main{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.btn-main:hover{background:#FFD23A;border-color:#FFD23A}
+.btn-line{background:transparent;color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(56px,11vw,120px) clamp(48px,8vw,88px)}
+.hero .word{
+  font-family:var(--display);font-weight:900;font-stretch:125%;
+  font-size:clamp(5rem,24vw,15rem);line-height:.8;letter-spacing:-.045em;
+  margin-left:-.04em;
+}
+.hero .sub{
+  font-family:var(--display);font-weight:800;font-stretch:100%;text-transform:uppercase;
+  font-size:clamp(1rem,2.6vw,1.45rem);letter-spacing:.02em;
+  margin-top:clamp(18px,3vw,28px);
+  display:flex;flex-wrap:wrap;gap:.2em .6em;align-items:baseline;
+}
+.hero .sub span:last-child{background:var(--yellow);padding:0 .25em}
+.hero .willing{
+  font-family:var(--read);font-weight:300;
+  font-size:clamp(1.7rem,4.6vw,3rem);line-height:1.16;letter-spacing:-.01em;
+  margin-top:clamp(40px,7vw,72px);max-width:20ch;
+}
+.hero .willing em{font-style:italic}
+.hero .toward{
+  margin-top:14px;font-family:var(--read);font-style:italic;font-weight:400;
+  font-size:clamp(1.1rem,2.4vw,1.45rem);color:var(--ink-soft);
+}
+.hero .five{
+  margin-top:22px;display:flex;flex-wrap:wrap;gap:.35rem 0;
+  font-family:var(--display);font-weight:800;text-transform:uppercase;
+  font-size:clamp(.82rem,1.9vw,1.05rem);letter-spacing:.08em;color:var(--ink);
+}
+.hero .five span{display:inline-flex;align-items:center}
+.hero .five span + span::before{content:"\00B7";margin-inline:.6em;color:var(--muted)}
+.look .claim .enemy{display:block;font-family:var(--display);font-weight:900;font-size:.9em;letter-spacing:-.02em;margin-bottom:.6em}
+.hero .go{margin-top:34px}
+
+/* ---------- areas ---------- */
+.areas{border-top:1px solid var(--rule);padding-block:clamp(48px,8vw,88px)}
+.areas h2{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(2rem,5vw,3.4rem);line-height:1;letter-spacing:-.025em;margin-top:14px;
+}
+.areas .lede{margin-top:14px;color:var(--ink-soft);max-width:48ch}
+.alist{list-style:none;margin:clamp(24px,4vw,40px) 0 0;padding:0}
+.alist li{
+  display:grid;grid-template-columns:22rem minmax(0,1fr);gap:6px 40px;align-items:baseline;
+  padding-block:clamp(18px,2.6vw,26px);border-top:1px solid var(--rule);
+}
+.alist li:last-child{border-bottom:1px solid var(--rule)}
+.alist h3{
+  font-family:var(--display);font-weight:900;font-stretch:100%;
+  font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.05;letter-spacing:-.02em;
+  display:flex;align-items:center;gap:.5rem;min-width:0;overflow-wrap:anywhere;
+}
+.alist h3::before{content:"";width:.42em;height:.42em;background:var(--yellow);flex:none}
+.alist p{color:var(--ink-soft);max-width:52ch}
+@media (max-width:900px){
+  .alist li{grid-template-columns:1fr}
+}
+
+/* ---------- foundations ---------- */
+.found{border-top:1px solid var(--rule);padding-block:clamp(56px,9vw,100px)}
+.found h2{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(2rem,5vw,3.4rem);line-height:1;letter-spacing:-.025em;margin-top:14px;
+}
+.found .lede{margin-top:14px;color:var(--ink-soft);max-width:48ch}
+.flist{list-style:none;margin:clamp(24px,4vw,40px) 0 0;padding:0;counter-reset:f;border-top:2px solid var(--ink)}
+.flist li{
+  counter-increment:f;display:grid;grid-template-columns:3rem minmax(0,20rem) minmax(0,1fr);
+  gap:6px 24px;align-items:baseline;padding-block:20px;border-bottom:1px solid var(--rule);
+}
+.flist li::before{content:counter(f,decimal-leading-zero);font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;color:var(--muted)}
+.flist h3{font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2vw,1.35rem);letter-spacing:-.01em}
+.flist p{color:var(--ink-soft)}
+.more{
+  display:inline-block;margin-top:26px;font-family:var(--display);font-weight:700;
+  text-decoration:none;border-bottom:3px solid var(--yellow);padding-bottom:2px;
+}
+@media (max-width:760px){
+  .flist li{grid-template-columns:2.4rem minmax(0,1fr)}
+  .flist li p{grid-column:2}
+}
+
+/* ---------- start here ---------- */
+.start{background:var(--paper-2);padding-block:clamp(56px,9vw,100px);scroll-margin-top:60px}
+.start h2{
+  font-family:var(--display);font-weight:900;font-stretch:100%;
+  font-size:clamp(2rem,5.4vw,3.6rem);line-height:1;letter-spacing:-.025em;max-width:16ch;
+}
+.start .lede{margin-top:14px;color:var(--ink-soft)}
+.ways{margin-top:clamp(28px,5vw,44px);display:grid;gap:0;border-top:2px solid var(--ink)}
+.way{
+  display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr) auto;
+  gap:10px 28px;align-items:center;padding-block:24px;border-bottom:1px solid var(--rule);
+}
+.way h3{font-family:var(--display);font-weight:800;font-size:1.3rem;letter-spacing:-.01em}
+.way p{color:var(--ink-soft)}
+.way .free{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;background:var(--yellow);padding:.15rem .4rem;margin-left:.5rem;vertical-align:.2em}
+@media (max-width:760px){
+  .way{grid-template-columns:1fr}
+  .way .btn{justify-self:start;margin-top:6px}
+}
+
+/* ---------- philosophy ---------- */
+.look{padding-block:clamp(64px,11vw,128px)}
+.look .inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:start}
+.look .claim{
+  font-family:var(--read);font-weight:300;font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.2;letter-spacing:-.01em;
+}
+.look .claim b{font-weight:500}
+.qs{list-style:none;margin:0;padding:0;border-left:3px solid var(--yellow)}
+.qs li{
+  font-family:var(--display);font-weight:700;font-size:clamp(1.15rem,2.2vw,1.45rem);
+  padding:.55rem 0 .55rem 1.2rem;letter-spacing:-.005em;
+}
+.again{margin-top:18px;padding-left:1.2rem;font-style:italic;color:var(--ink-soft);font-size:1.2rem}
+@media (max-width:760px){.look .inner{grid-template-columns:1fr}}
+
+/* ---------- riverbank band ---------- */
+.band{padding-block:clamp(24px,4vw,48px) clamp(48px,8vw,88px)}
+.band figure{margin:0}
+.river{
+  display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:18px clamp(28px,6vw,72px);
+  margin-top:clamp(28px,5vw,48px);align-items:start;
+}
+.river h2{
+  font-family:var(--display);font-weight:900;
+  font-size:clamp(1.9rem,4.4vw,3rem);line-height:1;letter-spacing:-.025em;margin-top:14px;
+}
+.river-text{display:grid;gap:14px;color:var(--ink-soft);max-width:56ch}
+.river-text .more{justify-self:start;color:var(--ink)}
+@media (max-width:760px){.river{grid-template-columns:1fr}}
+.band img{width:100%;height:clamp(240px,42vw,520px);object-fit:cover;object-position:50% 45%;background:var(--night)}
+.band figcaption{margin-top:12px}
+
+/* ---------- work with dom ---------- */
+.work{padding-block:clamp(64px,10vw,120px);scroll-margin-top:60px}
+.work .inner{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(28px,6vw,72px);align-items:center}
+.work .photo img{aspect-ratio:4/5;object-fit:cover;width:100%;max-width:100%}
+.work h2{
+  font-family:var(--display);font-weight:900;font-stretch:112%;
+  font-size:clamp(2.2rem,5.6vw,4rem);line-height:.95;letter-spacing:-.03em;
+}
+.work .space{margin-top:22px;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.35;font-weight:300;max-width:26ch}
+.work .note{margin-top:16px;color:var(--ink-soft);max-width:40ch}
+.reach{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.addr{margin-top:14px;font-size:.98rem;color:var(--ink-soft);display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.addr span{font-family:var(--mono);font-size:.9rem;color:var(--ink);user-select:all}
+.copy{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;
+  background:transparent;color:var(--ink);border:1px solid var(--ink);padding:.3rem .55rem;border-radius:0;
+}
+.copy:hover{background:var(--yellow);border-color:var(--yellow)}
+@media (max-width:760px){.work .inner{grid-template-columns:1fr}.work .photo{max-width:340px}}
+
+/* ---------- email ---------- */
+.mail{border-top:2px solid var(--ink);padding-block:clamp(48px,8vw,80px)}
+.mail .inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;align-items:end}
+.mail h2{font-family:var(--display);font-weight:800;font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.1;letter-spacing:-.015em;max-width:20ch}
+.mail form{display:flex;gap:0;flex-wrap:wrap}
+.mail label.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.mail input{
+  flex:1 1 220px;min-width:0;font:inherit;font-size:1rem;color:var(--ink);
+  background:transparent;border:2px solid var(--ink);border-right:0;padding:.9rem 1rem;border-radius:0;
+}
+.mail input::placeholder{color:var(--muted)}
+.mail button{
+  font-family:var(--display);font-weight:700;font-size:1rem;cursor:pointer;
+  background:var(--ink);color:var(--paper);border:2px solid var(--ink);padding:.9rem 1.3rem;border-radius:0;
+}
+.mail button:hover{background:var(--yellow);color:var(--ink)}
+.mail .fine{margin-top:12px;color:var(--muted);font-size:.95rem;grid-column:1/-1}
+.mail .done{margin-top:12px;font-size:1rem;grid-column:1/-1}
+@media (max-width:760px){
+  .mail .inner{grid-template-columns:1fr}
+  .mail input{border-right:2px solid var(--ink);border-bottom:0;flex-basis:100%}
+  .mail button{flex:1 1 100%}
+}
+
+/* ---------- footer ---------- */
+.foot{background:var(--night);color:var(--night-text);padding-block:clamp(48px,8vw,80px) 36px}
+.foot .inner{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1fr);gap:28px 48px;align-items:start}
+.foot .emblem{width:84px;height:84px}
+.foot p{font-size:1rem;line-height:1.6;color:var(--night-muted);max-width:44ch}
+.foot p + p{margin-top:14px}
+.foot strong{color:var(--night-text);font-weight:500}
+.foot a{color:var(--night-text);text-decoration-color:var(--yellow);text-underline-offset:.2em}
+.foot .contacts{display:grid;gap:8px;font-family:var(--mono);font-size:.82rem;letter-spacing:.04em}
+.foot .contacts span{color:var(--night-muted);display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:2px}
+.foot .base{
+  margin-top:40px;padding-top:18px;border-top:1px solid #2A2824;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--night-muted);
+  display:flex;flex-wrap:wrap;gap:8px 24px;
+}
+@media (max-width:860px){.foot .inner{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="shell bar">
+    <a class="mark" href="#top" aria-label="OSIP, back to the top">OSIP<i aria-hidden="true"></i></a>
+    <a class="cta" href="#work">Free Check-In</a>
+  </div>
+  <nav class="jump" aria-label="Sections on this page">
+    <div class="shell">
+      <ul>
+        <li><a href="#areas">Areas of life</a></li>
+        <li><a href="#start">Free ways in</a></li>
+        <li><a href="#foundations">Foundations</a></li>
+        <li><a href="#riverbank">The Riverbank</a></li>
+        <li><a href="#work">Work with Dom</a></li>
+        <li><a href="#join">Stay in touch</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="shell">
+      <h1 class="word">OSIP</h1>
+      <p class="sub"><span>Outer Struggle.</span> <span>Inner Peace.</span></p>
+      <p class="toward">Working through struggle, moving towards peace.</p>
+      <p class="willing">A whole-life approach to wellbeing.</p>
+      <p class="five" aria-label="Body, Mind, Relationships, Environment, Purpose"><span>Body</span><span>Mind</span><span>Relationships</span><span>Environment</span><span>Purpose</span></p>
+      <div class="go"><a class="btn btn-main" href="#start">Start here <span class="ar" aria-hidden="true">&rarr;</span></a></div>
+    </div>
+  </section>
+
+  <section class="areas" id="areas" aria-labelledby="areas-h">
+    <div class="shell">
+      <p class="label">Where it shows up</p>
+      <h2 id="areas-h">Five areas of a life</h2>
+      <p class="lede">None of them stands alone. When one slips, the others usually feel it.</p>
+      <ul class="alist">
+        <li><h3>Body</h3><p>Sleep, movement, food, energy and pain. Looking after the place you actually live, rather than trying to perfect it.</p></li>
+        <li><h3>Mind</h3><p>Your thoughts, moods and the stories you tell yourself. Learning to notice them instead of automatically obeying them.</p></li>
+        <li><h3>Relationships</h3><p>Partners, family, friends and the way you treat yourself. Whether anyone actually knows what's going on with you.</p></li>
+        <li><h3>Environment</h3><p>Your home, your routines, your phone and the company you keep. What surrounds you quietly shapes everything else.</p></li>
+        <li><h3>Purpose</h3><p>Work, direction and what you give yourself to. Whether you chose where you are, or just arrived there.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="start" id="start" aria-labelledby="start-h">
+    <div class="shell">
+      <p class="label">Start here</p>
+      <h2 id="start-h" style="margin-top:14px">Four free ways in.</h2>
+      <p class="lede">The front door, not the whole house. Pick whichever feels easiest today.</p>
+      <div class="ways">
+        <div class="way">
+          <h3>Life Audit <span class="free">Free</span></h3>
+          <p>Ten minutes across ten areas of your life. No score, no grade, just what stands out. Your answers stay in your browser.</p>
+          <a class="btn btn-line" href="https://claude.ai/artifact/RT11RAgwbAzpMYVKo9Lwf1">Take the Audit <span class="ar" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="way">
+          <h3>OSIP Guide <span class="free">Free</span></h3>
+          <p>The thinking behind OSIP in one read: the Foundations, the method, and what the evidence does and doesn't support.</p>
+          <a class="btn btn-line" href="https://claude.ai/artifact/3CaodsPVrgTqv1XzDEgBQi">Read the Guide <span class="ar" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="way">
+          <h3>One Small Change <span class="free">Free</span></h3>
+          <p>A seven-day challenge. Choose one area of your life, one small action, and spend a week paying attention to what happens.</p>
+          <a class="btn btn-line" href="https://claude.ai/artifact/XvxVdMW5pyuqXdNA8SrKfB">Start the challenge <span class="ar" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <div class="way">
+          <h3>30-Minute Check-In <span class="free">Free</span></h3>
+          <p>Prefer to talk? Half an hour with Dom, online or in Pai, to look at where you're at. No pitch at the end.</p>
+          <a class="btn btn-line" href="https://wa.me/447963322286?text=Hi%20Dom%2C%20I%27d%20like%20to%20book%20a%20free%2030-minute%20Check-In.">Book on WhatsApp <span class="ar" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="look" aria-label="The OSIP approach">
+    <div class="shell inner">
+      <p class="claim"><b class="enemy">Struggle isn't the enemy. Avoidance is.</b> OSIP isn't about becoming a perfect version of yourself. <b>It's about being willing to look at your life honestly.</b></p>
+      <div>
+        <ul class="qs">
+          <li>What is happening?</li>
+          <li>What's connected to it?</li>
+          <li>What's yours to carry?</li>
+          <li>What could you do next?</li>
+        </ul>
+        <p class="again">Then you look again.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="found" id="foundations" aria-labelledby="found-h">
+    <div class="shell">
+      <p class="label">How OSIP looks at it</p>
+      <h2 id="found-h">The five Foundations</h2>
+      <p class="lede">Five ways of looking at the same life. Not rules, and not a checklist.</p>
+      <ol class="flist">
+        <li><h3>Remain a Student</h3><p>Stay curious enough to be wrong, about yourself, about life, and about OSIP too. Confidence can live alongside doubt; certainty that arrives fast usually hasn't been checked.</p></li>
+        <li><h3>Begin with Reality</h3><p>Change starts from what's actually happening, not the version you've edited for comfort. Seeing something clearly isn't accepting it. It just lets you respond to the real thing.</p></li>
+        <li><h3>Recognise What Is Yours to Carry</h3><p>Your actions, words, choices and boundaries are yours. Other people's opinions and the past aren't. Getting precise about that line stops you spending everything on what was never yours to fix.</p></li>
+        <li><h3>Nothing Stands Alone</h3><p>Sleep affects mood, mood affects relationships, relationships affect motivation. Pull one thread and the rest moves, so the real lever is often somewhere other than where the problem shows up.</p></li>
+        <li><h3>Human Before Perfect</h3><p>You'll slip, stall and get things wrong. That's being a person, not proof you're broken. Responsibility doesn't need cruelty: treat yourself like a human being while you change.</p></li>
+      </ol>
+      <a class="more" href="https://claude.ai/artifact/3CaodsPVrgTqv1XzDEgBQi">Read them in full in the Guide <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+  <section class="band" id="riverbank" aria-labelledby="river-h">
+    <div class="shell">
+      <figure>
+        <img src="img/riverbank.jpg" alt="A circle of people sitting around a fire at night at the Riverbank in Pai, under string lights." loading="lazy" width="1152" height="553">
+        <figcaption class="label">A fire circle at the Riverbank, Pai</figcaption>
+      </figure>
+      <div class="river">
+        <div>
+          <p class="label">Community</p>
+          <h2 id="river-h">The Riverbank Gathering</h2>
+        </div>
+        <div class="river-text">
+          <p>A space by the river in Pai that Dom is bringing back to life. Ecstatic dance, live music, cacao, fire circles, men's circles and clean-ups of the space itself.</p>
+          <p>It's where a lot of OSIP gets tested for real: people turning up and doing something together rather than reading about it. Gatherings are free for Pai locals and run by invitation. If you're in Pai and want to come, ask.</p>
+          <a class="more" href="https://wa.me/447963322286?text=Hi%20Dom%2C%20I%27d%20like%20to%20come%20to%20the%20Riverbank.">Ask about the next one <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="work" aria-labelledby="work-h">
+    <div class="shell inner">
+      <div class="photo">
+        <img src="img/dom.jpg" alt="Dom, smiling, in a black OSIP vest at the gym." width="880" height="1100" loading="lazy">
+      </div>
+      <div>
+        <h2 id="work-h">Work with Dom</h2>
+        <p class="space">A space to slow down, be heard, look honestly at what's happening, and work out what might come next.</p>
+        <p class="note">Start with a free 30-minute Check-In, online or in person in Pai. No pitch at the end.</p>
+        <p class="label" style="margin-top:28px">Book your free Check-In</p>
+        <div class="reach">
+          <a class="btn btn-main" href="https://wa.me/447963322286?text=Hi%20Dom%2C%20I%27d%20like%20to%20book%20a%20free%2030-minute%20Check-In.">WhatsApp <span class="ar" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-line" href="https://ig.me/m/osip_dominic_mcsherry">Instagram <span class="ar" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-line" href="mailto:dommcsherry97@icloud.com?subject=Free%20Check-In">Email <span class="ar" aria-hidden="true">&rarr;</span></a>
+        </div>
+        <p class="addr">Or email directly: <span id="addr">dommcsherry97@icloud.com</span> <button type="button" class="copy" id="copy">Copy</button></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mail" id="join" aria-labelledby="mail-h">
+    <div class="shell inner">
+      <h2 id="mail-h">Want to hear when the next OSIP experiment starts?</h2>
+      <form id="join" novalidate>
+        <label class="sr" for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="Your email" required>
+        <button type="submit">Join</button>
+      </form>
+      <p class="fine">One message when something's happening. Nothing else, and you can leave whenever you like.</p>
+      <p class="done" id="joined" hidden></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="inner">
+      <img class="emblem" src="img/emblem.jpg" alt="OSIP emblem" width="84" height="84">
+      <div>
+        <p><strong>Outer Struggle, Inner Peace.</strong> Written and lived by Dominic Mcsherry. A working draft. If you think something here is wrong, I'd rather hear it than not.</p>
+        <p><strong>This is not treatment.</strong> Nothing here is medical or psychological treatment, or a substitute for either.</p>
+        <p>If things feel heavy right now: Samaritans <strong>116 123</strong>, any time. CALM <strong>0800 58 58 58</strong>, 5pm to midnight. Text <strong>SHOUT</strong> to 85258.</p>
+      </div>
+      <div class="contacts">
+        <div><span>Instagram</span><a href="https://instagram.com/osip_dominic_mcsherry">@osip_dominic_mcsherry</a></div>
+        <div><span>WhatsApp</span><a href="https://wa.me/447963322286">+44 7963 322286</a></div>
+        <div><span>Email</span>dommcsherry97@icloud.com</div>
+      </div>
+    </div>
+    <div class="base"><span>&copy; 2026 Dominic Mcsherry</span><span>Working draft V1</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var links=[].slice.call(document.querySelectorAll('.jump a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        links.forEach(function(a){
+          var on=a.getAttribute('href')==='#'+e.target.id;
+          a.classList.toggle('on',on);
+          if(on && a.scrollIntoView){ try{ a.parentNode.parentNode.scrollTo({left:a.offsetLeft-16,behavior:'smooth'}); }catch(_){} }
+        });
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    links.forEach(function(a){var s=document.querySelector(a.getAttribute('href')); if(s) io.observe(s);});
+  }
+})();
+(function(){
+  var b=document.getElementById('copy'), a=document.getElementById('addr');
+  if(!b||!a) return;
+  b.addEventListener('click',function(){
+    var t=a.textContent.trim();
+    function sel(){try{var r=document.createRange();r.selectNodeContents(a);var s=window.getSelection();s.removeAllRanges();s.addRange(r);}catch(_){}}
+    try{
+      navigator.clipboard.writeText(t).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy';},1800);},function(){sel();b.textContent='Selected';});
+    }catch(_){sel();b.textContent='Selected';}
+  });
+})();
+(function(){
+  var form=document.getElementById('join'), out=document.getElementById('joined'), field=document.getElementById('email');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=(field.value||'').trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){
+      out.hidden=false; out.textContent='That email address doesn’t look complete. Check it and try again.'; field.focus(); return;
+    }
+    out.hidden=false;
+    out.textContent='Thanks. Sign-up isn’t connected yet in this preview, so for now email dommcsherry97@icloud.com and Dom will add you.';
+  });
+})();
+</script>
+</body>
+</html>
